@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍳</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dishcovery — Snap, Scan, Cook | Dinner is Already in Your Kitchen</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+              mono: ['"DM Mono"', 'monospace'],
+            },
+            colors: {
+              brand: {
+                50: '#EAF3DF',
+                100: '#D5E2C6',
+                400: '#7DBE4A',
+                500: '#7DBE4A',
+                600: '#4E8B3A',
+                700: '#3c7b19',
+              },
+              primary: '#7DBE4A',
+              darkbg: '#1E1E1E'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: #FFFFFF; font-family: 'Poppins', sans-serif; -webkit-font-smoothing: antialiased; }
+      a { color: #1E1E1E; text-decoration: none; }
+      a:hover { color: #7DBE4A; }
+    </style>
+  </head>
+  <body class="bg-white dark:bg-[#121212] text-[#1E1E1E] dark:text-slate-100">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
