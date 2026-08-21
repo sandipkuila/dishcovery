@@ -1,7 +1,7 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { Mic, ArrowRight } from 'lucide-react';
 
-export default function HeroSection({ onScanClick, onHowItWorksClick }) {
+export default function HeroSection({ onHandsFreeClick, onHowItWorksClick }) {
   return (
     <section className="relative overflow-hidden pb-12 sm:pb-20 pt-0 bg-white">
       {/* Background Decorative Circles */}
@@ -30,10 +30,11 @@ export default function HeroSection({ onScanClick, onHowItWorksClick }) {
           
           <div className="flex flex-wrap items-center gap-3.5 pt-2">
             <button
-              onClick={onScanClick}
-              className="bg-[#7DBE4A] hover:bg-[#6ba63d] text-white text-[15px] font-semibold px-[30px] py-[15px] rounded-full shadow-lg shadow-green-600/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              onClick={onHandsFreeClick}
+              className="bg-[#7DBE4A] hover:bg-[#6ba63d] text-white text-[15px] font-semibold px-[30px] py-[15px] rounded-full shadow-lg shadow-green-600/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer flex items-center gap-2.5"
             >
-              Scan my kitchen
+              <Mic className="w-5 h-5 animate-pulse" />
+              <span>Hands-free cooking</span>
             </button>
             <button
               onClick={onHowItWorksClick}

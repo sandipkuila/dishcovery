@@ -12,9 +12,10 @@ import FamilyCookMode from './components/FamilyCookMode';
 import RecipeEditorModal from './components/RecipeEditorModal';
 import SmartImportModal from './components/SmartImportModal';
 import AuthModal from './components/AuthModal';
+import VoiceChefModal from './components/VoiceChefModal';
 import HouseholdHub from './components/HouseholdHub';
 import { INITIAL_RECIPES, INITIAL_HOUSEHOLD } from './data/mockData';
-import { ShoppingCart, Trash2, Heart, Utensils } from 'lucide-react';
+import { ShoppingCart, Trash2, Heart, Utensils, Mic } from 'lucide-react';
 
 export default function App() {
   const [recipes, setRecipes] = useState(INITIAL_RECIPES);
@@ -27,6 +28,7 @@ export default function App() {
   // Current User / Auth State
   const [currentUser, setCurrentUser] = useState(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isVoiceChefModalOpen, setIsVoiceChefModalOpen] = useState(false);
 
   // Dark Mode State
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -120,7 +122,7 @@ export default function App() {
         setActiveTab={setActiveTab}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        onOpenCreateModal={() => setIsCreateModalOpen(true)}
+        onOpenCreateModal={() => setIsCreateModalOpen(false)}
         onOpenImportModal={() => setIsImportModalOpen(true)}
         onOpenAuthModal={() => setIsAuthModalOpen(true)}
         currentUser={currentUser}
@@ -137,7 +139,7 @@ export default function App() {
           <>
             {/* Hero Section */}
             <HeroSection
-              onScanClick={() => setIsImportModalOpen(true)}
+              onHandsFreeClick={() => setIsVoiceChefModalOpen(true)}
               onHowItWorksClick={() => {
                 const el = document.getElementById('how');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -262,6 +264,16 @@ export default function App() {
         </div>
       )}
 
+      {/* Floating Hands-free Voice Chef Button */}
+      <button
+        onClick={() => setIsVoiceChefModalOpen(true)}
+        className="fixed bottom-4 left-4 z-40 bg-[#7DBE4A] hover:bg-[#6ba63d] text-white p-3.5 rounded-full shadow-2xl flex items-center gap-2 font-bold text-xs cursor-pointer border-2 border-white dark:border-slate-800 transition-all transform hover:scale-105"
+        title="Open Hands-Free Voice Chef"
+      >
+        <Mic className="w-4 h-4 animate-pulse" />
+        <span className="hidden sm:inline">Hands-Free Chef</span>
+      </button>
+
       {/* Footer */}
       <Footer />
 
@@ -311,6 +323,13 @@ export default function App() {
         isOpen={isAuthModalOpen}
         onClose={() => setIsAuthModalOpen(false)}
         onAuthSuccess={handleAuthSuccess}
+      />
+
+      {/* MODAL 6: Hands-Free Voice Chef Modal */}
+      <VoiceChefModal
+        isOpen={isVoiceChefModalOpen}
+        onClose={() => setIsVoiceChefModalOpen(false)}
+        currentRecipe={selectedRecipe || recipes[0]}
       />
 
     </div>
